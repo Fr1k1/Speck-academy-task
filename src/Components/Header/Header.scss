@@ -1,5 +1,8 @@
+@import "../../theme.scss";
+
+
 .header {
-  background-color: var(--color-bg-secondary);
+  background-color: $colorBgSecondary;
 }
 
 .header__inner {
@@ -21,7 +24,7 @@
 }
 
 .header__logo-img path {
-  fill: var(--color-primary);
+  fill: $colorPrimary;
 }
 
 .header__link {
@@ -31,7 +34,7 @@
 }
 
 .header__link:hover {
-  color: var(--color-primary);
+  color: $colorPrimary;
 }
 
 @media screen and (min-width: 768px) {

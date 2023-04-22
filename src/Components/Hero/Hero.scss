@@ -1,3 +1,6 @@
+@import "../../theme.scss";
+
+
 .Hero {
   position: relative;
   height: 570px;
@@ -42,7 +45,7 @@
   }
 
   &-Title {
-    color: var(--color-secondary);
+    color: $colorSecondary;
     font-weight: 700;
     font-size: 38px;
     line-height: 130%;
@@ -52,7 +55,7 @@
   }
 
   &-Subtitle {
-    color: var(--color-secondary);
+    color: $colorSecondary;
     font-size: 16px;
     line-height: 150%;
     letter-spacing: 0.4px;

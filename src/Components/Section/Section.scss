@@ -1,8 +1,12 @@
+@import "../../theme.scss";
+
+
+
 .section {
-  background-color: var(--color-bg-primary);
+  background-color: $colorBgPrimary;
 
   &_secondary {
-    background-color: var(--color-bg-secondary);
+    background-color: $colorBgSecondary;
   }
 
   &__inner {
@@ -43,7 +47,7 @@
     max-width: 700px;
     margin: 0 auto;
     text-align: center;
-    color: var(--color-text-secondary);
+    color: $colorTextSecondary;
     font-size: 16px;
     margin-bottom: 48px;
   }

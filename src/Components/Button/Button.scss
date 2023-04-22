@@ -1,9 +1,11 @@
+@import "../../theme.scss";
+
 .Button {
   display: inline-block;
   padding: 12px 20px;
   border-radius: 4px;
-  background-color: var(--color-primary);
-  color: var(--color-secondary);
+  background-color: $colorPrimary;
+  color: $colorSecondary;
   transition: background-color 0.3s ease-out;
   outline: none;
   border: none;
@@ -13,6 +15,6 @@
   }
 
   &:hover {
-    background-color: var(--color-primary-dark);
+    background-color: $colorPrimary;
   }
 }

@@ -1,3 +1,6 @@
+@import "../../theme.scss";
+
+
 .course {
   border-radius: 6px;
   padding: 20px;
@@ -30,7 +33,7 @@
   }
 
   &__subtitle {
-    color: var(--color-text-secondary);
+    color: $colorTextSecondary;
     font-size: 16px;
     line-height: 150%;
     margin-bottom: 16px;
@@ -39,6 +42,6 @@
   &__time {
     font-size: 14px;
     font-weight: 700;
-    color: var(--color-primary);
+    color: $colorPrimary;
   }
 }
