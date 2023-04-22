@@ -1,6 +1,8 @@
 import "./Hero.scss";
 import Heroimg from "../../assets/images/landing.jpg";
 import Button from "../Button/Button";
+import { Link } from "react-router-dom";
+
 
 const Hero = () => {
     return (
@@ -22,7 +24,7 @@ const Hero = () => {
                                 Make a turnaround in your career or upgrade your current skill
                                 set with knowledge-based lessons from IT practice.
                             </p>
-                            <Button>Explore courses</Button>
+                            <Link to="/courses" className="button"> <Button>Explore courses</Button></Link>  
                         </div>
                     </div>
                 </div>

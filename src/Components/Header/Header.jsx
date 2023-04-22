@@ -1,3 +1,4 @@
+import Button from "../Button/Button";
 import "./Header.scss";
 import { Link } from "react-router-dom";
 
@@ -39,7 +40,11 @@ const Header = () => {
                     <nav className="header__nav">
                         <Link to="/" className="header__link">Home</Link>
                         <Link to="/courses" className="header__link">Courses</Link>
-                        <Link to="#" className="button">Register</Link>
+
+                    
+
+                        <Link to="#" className="button"> <Button>Register</Button></Link>
+
                     </nav>
                 </div>
             </header>
