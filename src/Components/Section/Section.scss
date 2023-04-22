@@ -7,22 +7,20 @@
 
   &__inner {
     padding: 64px 24px;
+
     @media screen and (min-width: 768px) {
       padding: 72px 32px;
     }
 
     @media screen and (min-width: 1024px) {
-      font-size: 32px;
-      &__inner {
-        padding: 90px 0;
-        max-width: 930px;
-        margin: 0 auto;
-      }
+      padding: 90px 0;
+      max-width: 930px;
+      margin: 0 auto;
     }
 
     @media screen and (min-width: 1300px) {
-        max-width: 1200px;
-      }
+      max-width: 1280px;
+    }
   }
 
   &__title {
@@ -50,3 +48,4 @@
     margin-bottom: 48px;
   }
 }
+

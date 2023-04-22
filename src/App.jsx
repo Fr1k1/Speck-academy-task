@@ -2,8 +2,7 @@ import Header from "./Components/Header/Header"
 import Hero from "./Components/Hero/Hero"
 import Section from "./Components/Section/Section"
 import Grid from "./Components/Grid/Grid"
-import Course from "./Components/Course/Course"
-import LectureImg1 from "./assets/images/lecture-1.jpg";
+import Courses from "./Components/Courses/Courses"
 
 
 function App() {
@@ -21,19 +20,17 @@ function App() {
                     the courses page.">
 
 
-          <Grid>
 
-            <Course imgSrc={LectureImg1} imgAlt="Lekcija 1" title="Introduction"
-              subtitle="Get to know us better..." time="60min" />
-              <Course imgSrc={LectureImg1} imgAlt="Lekcija 1" title="Introduction"
-              subtitle="Get to know us better..." time="60min" />
-              <Course imgSrc={LectureImg1} imgAlt="Lekcija 1" title="Introduction"
-              subtitle="Get to know us better..." time="60min" />
-              <Course imgSrc={LectureImg1} imgAlt="Lekcija 1" title="Introduction"
-              subtitle="Get to know us better..." time="60min" />
-              <Course imgSrc={LectureImg1} imgAlt="Lekcija 1" title="Introduction"
-              subtitle="Get to know us better..." time="60min" />
-          </Grid>
+
+          <div>
+            <Grid>
+
+              <Courses />
+            </Grid>
+          </div>
+
+
+
         </Section>
       </main>
     </>

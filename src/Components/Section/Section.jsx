@@ -9,10 +9,10 @@ const Section = ({title,subtitle,children}) => {
                 <p className="section__subtitle">
                     {subtitle}
                 </p>
-
+                {children}
             </div>
 
-            {children}
+           
         </section>
     )
 }
