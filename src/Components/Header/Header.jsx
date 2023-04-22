@@ -1,4 +1,5 @@
 import "./Header.scss";
+import { Link } from "react-router-dom";
 
 
 const Header = () => {
@@ -36,9 +37,9 @@ const Header = () => {
                         />
                     </svg>
                     <nav className="header__nav">
-                        <a href="index.html" className="header__link">Home</a>
-                        <a href="courses.html" className="header__link">Courses</a>
-                        <a href="#" className="button">Register</a>
+                        <Link to="/" className="header__link">Home</Link>
+                        <Link to="/courses" className="header__link">Courses</Link>
+                        <Link to="#" className="button">Register</Link>
                     </nav>
                 </div>
             </header>
