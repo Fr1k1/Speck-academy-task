@@ -1,15 +1,15 @@
 import PropTypes from 'prop-types'
 import "./Grid.scss";
 
-const Grid = ({children}) => {
+const Grid = ({ children }) => {
     return (
-        <div className='grid'>{children}</div>
+        <div className='Grid'>{children}</div>
     )
 }
 
 Grid.propTypes = {
 
-    children:PropTypes.node
+    children: PropTypes.node
 }
 
 export default Grid

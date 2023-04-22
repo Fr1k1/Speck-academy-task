@@ -3,17 +3,17 @@ import "./Course.scss";
 
 const Course = ({ imgSrc, imgAlt, title, subtitle, time }) => {
     return (
-        <article className="course">
-            <figure className="course__figure">
+        <article className="Course">
+            <figure className="Course-Figure">
                 <img
                     src={imgSrc}
                     alt={imgAlt}
-                    className="course__img"
+                    className="Course-Img"
                 />
             </figure>
-            <h3 className="course__title">{title}</h3>
-            <p className="course__subtitle">{subtitle}</p>
-            <p className="course__time">{time}</p>
+            <h3 className="Course-Title">{title}</h3>
+            <p className="Course-Subtitle">{subtitle}</p>
+            <p className="Course-Time">{time}</p>
         </article>
     )
 }

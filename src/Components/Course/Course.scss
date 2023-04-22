@@ -1,7 +1,6 @@
 @import "../../theme.scss";
 
-
-.course {
+.Course {
   border-radius: 6px;
   padding: 20px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
@@ -12,7 +11,7 @@
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   }
 
-  &__figure {
+  &-Figure {
     overflow: hidden;
     border-radius: 6px;
     width: 100%;
@@ -20,26 +19,26 @@
     margin-bottom: 24px;
   }
 
-  &__img {
+  &-Img {
     width: 100%;
     height: 100%;
     object-fit: cover;
   }
 
-  &__title {
+  &-Title {
     font-size: 20px;
     font-weight: 700;
     margin-bottom: 16px;
   }
 
-  &__subtitle {
+  &-Subtitle {
     color: $colorTextSecondary;
     font-size: 16px;
     line-height: 150%;
     margin-bottom: 16px;
   }
 
-  &__time {
+  &-Time {
     font-size: 14px;
     font-weight: 700;
     color: $colorPrimary;

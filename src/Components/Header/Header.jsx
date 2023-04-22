@@ -7,11 +7,11 @@ const Header = () => {
     return (
         <div>
 
-            <header className="header">
-                <div className="header__inner">
-                    <a href="index.html" className="header__logo-link">
+            <header className="Header">
+                <div className="Header-Inner">
+                    <a href="index.html" className="Header-LogoLink">
                         <svg
-                            className="header__logo-img"
+                            className="Header-LogoImg"
                             width="120"
                             height="24"
                             viewBox="0 0 120 24"
@@ -25,7 +25,7 @@ const Header = () => {
                         </svg>
                     </a>
                     <svg
-                        className="header__hamburger"
+                        className="Header-Hamburger"
                         width="448"
                         height="392"
                         viewBox="0 0 448 392"
@@ -37,13 +37,13 @@ const Header = () => {
                             fill="black"
                         />
                     </svg>
-                    <nav className="header__nav">
-                        <Link to="/" className="header__link">Home</Link>
-                        <Link to="/courses" className="header__link">Courses</Link>
+                    <nav className="Header-Nav">
+                        <Link to="/" className="Header-Link">Home</Link>
+                        <Link to="/courses" className="Header-Link">Courses</Link>
 
                     
 
-                        <Link to="#" className="button"> <Button>Register</Button></Link>
+                        <Link to="#" > <Button>Register</Button></Link>
 
                     </nav>
                 </div>

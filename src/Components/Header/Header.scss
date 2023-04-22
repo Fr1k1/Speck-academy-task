@@ -1,67 +1,63 @@
 @import "../../theme.scss";
 
-
-.header {
+.Header {
   background-color: $colorBgSecondary;
-}
 
-.header__inner {
-  height: 80px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 24px;
-}
-
-.header__hamburger {
-  display: block;
-  width: 32px;
-  height: 32px;
-}
-
-.header__nav {
-  display: none;
-}
-
-.header__logo-img path {
-  fill: $colorPrimary;
-}
-
-.header__link {
-  margin-right: 32px;
-  line-height: 80px;
-  transition: color 0.3s ease-out;
-}
-
-.header__link:hover {
-  color: $colorPrimary;
-}
-
-@media screen and ($tablet) {
-  .header__inner {
-    padding: 0 32px;
-  }
-}
-
-@media screen and ($desktop) {
-  .header__inner {
-    padding: 0;
-    max-width: 930px;
-    margin: 0 auto;
-  }
-
-  .header__hamburger {
-    display: none;
-  }
-
-  .header__nav {
+  &-Inner {
+    height: 80px;
     display: flex;
+    justify-content: space-between;
     align-items: center;
+    padding: 0 24px;
+
+    @media screen and ($tablet) {
+      padding: 0 32px;
+    }
+
+    @media screen and ($desktop) {
+      padding: 0;
+      max-width: 930px;
+      margin: 0 auto;
+    }
+
+    @media screen and ($desktopLarge) {
+
+      max-width: 1280px;
+
+    }
+  }
+
+  &-Hamburger {
+    display: block;
+    width: 32px;
+    height: 32px;
+
+    @media screen and ($desktop) {
+      display: none;
+    }
+  }
+
+  &-Nav {
+    display: none;
+
+    @media screen and ($desktop) {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &-LogoImg path {
+    fill: $colorPrimary;
+  }
+
+  &-Link {
+    margin-right: 32px;
+    line-height: 80px;
+    transition: color 0.3s ease-out;
+  }
+
+  &-Link:hover {
+    color: $colorPrimary;
   }
 }
 
-@media screen and ($desktopLarge) {
-  .header__inner {
-    max-width: 1280px;
-  }
-}
