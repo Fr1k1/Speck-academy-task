@@ -1,5 +1,6 @@
 import "./Button.scss";
 import { useEffect } from "react";
+import PropTypes from "prop-types";
 
 
 
@@ -17,6 +18,11 @@ const Button = ({ children }) => {
     return (
         <button className="Button Button_secondary">{children}</button>
     )
+}
+
+Button.propTypes = {
+
+    children: PropTypes.node,
 }
 
 export default Button
