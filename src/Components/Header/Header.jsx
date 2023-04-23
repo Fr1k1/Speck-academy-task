@@ -1,9 +1,25 @@
 import Button from "../Button/Button";
 import "./Header.scss";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import { useEffect } from "react";
 
 
 const Header = () => {
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
+
+    const navLinkStyles = ({ isActive }) => {
+        return {
+            fontWeight: isActive ? 'bold' : 'normal',
+            textDecoration: isActive ? 'underline' : 'none',
+
+
+        }
+    }
+
+
     return (
         <div>
 
@@ -38,12 +54,12 @@ const Header = () => {
                         />
                     </svg>
                     <nav className="Header-Nav">
-                        <Link to="/" className="Header-Link">Home</Link>
-                        <Link to="/courses" className="Header-Link">Courses</Link>
+                        <NavLink to="/" style={navLinkStyles} className="Header-Link">Home</NavLink>
+                        <NavLink to="/courses" style={navLinkStyles} className="Header-Link">Courses</NavLink>
 
-                    
 
-                        <Link to="#" > <Button>Register</Button></Link>
+
+                        <NavLink to="#" style={navLinkStyles}   > <Button>Register</Button></NavLink>
 
                     </nav>
                 </div>
