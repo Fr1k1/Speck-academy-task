@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom"
 import Homepage from "./Pages/Homepage/Homepage"
 import CoursesPage from "./Pages/Courses/CoursesPage"
+import Course_page from "./Pages/Course_page/Course_page"
 
 
 function App() {
@@ -34,6 +35,8 @@ function App() {
 
 
         </Route>
+
+        <Route path={"/course"} element={<Course_page/>} />
 
       </Routes>
     </>

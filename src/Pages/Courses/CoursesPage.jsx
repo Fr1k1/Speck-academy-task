@@ -2,7 +2,7 @@ import "./CoursesPage.scss";
 import Courses from "../../Components/Courses/Courses";
 import Grid from "../../Components/Grid/Grid";
 import Header from "../../Components/Header/Header";
-import Section from "../../Components/Section/Section";
+import Section from "../../components/Section/Section";
 
 
 const CoursesPage = () => {
