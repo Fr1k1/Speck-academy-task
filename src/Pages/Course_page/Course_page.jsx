@@ -1,23 +1,51 @@
-import Section from "../../components/Section/Section";
+import Section from "../../Components/Section/Section";
 import SinglePage from "../../Components/SinglePage/SinglePage";
-import LectureImg1 from "../../assets/images/lecture-1.jpg";
 import Header from "../../Components/Header/Header";
+import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import coursesMock from "../../utils/mock/courses";
 
 const Course_page = () => {
-    return (
-        <div>
 
-            <Header />
-            <Section title={"Introduction"}>
-                <SinglePage
-                    imgSrc={LectureImg1}
-                    imgAlt={"Introduction"}
-                    content={
-                        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint omnis, aspernatur veritatis iure quisquam vel quos, numquam eaque at, saepe incidunt harum. Voluptates eligendi iste ullam fuga officiis distinctio earum? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rem iusto sequi in sit, consequuntur similique ullam eligendi adipisci. Neque odit sequi modi iusto adipisci recusandae vitae sapiente cum sit est. Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe voluptates minus nulla voluptatibus quod voluptatum debitis aspernatur magnam eius nostrum, quaerat facere molestias modi, amet praesentium? Tempore nihil dignissimos veniam."
-                    }
-                />
-            </Section>
-        </div>
+    const { id } = useParams();
+
+    const [courses, setCourses] = useState(null);
+    const [course, setCourse] = useState(null);
+
+
+
+    useEffect(() => {
+
+        setTimeout(() => {
+
+            setCourses(coursesMock);
+
+        }, 1000);
+    }, []);
+
+    useEffect(() => {
+
+        courses && setCourse(courses.filter((course) => course.id === parseInt(id)));
+
+    }, [courses, id]) //osluskujem svaku promjenu na courses state varijabli
+
+
+    return (
+
+        course && (
+            <div>
+
+                <Header />
+                <Section title={course.title}>
+                    <SinglePage
+                        imgSrc={course.imgSrc}
+                        imgAlt={course.imgAlt}
+                        content={
+                            course.content
+                        }
+                    />
+                </Section>
+            </div>)
     );
 };
 export default Course_page;
