@@ -1,6 +1,8 @@
-import "./Button.scss";
+//import "./Button.scss";
 import { useEffect } from "react";
 import PropTypes from "prop-types";
+
+import { Button as ButtonStyle } from "./ButtonStyle";
 
 
 
@@ -16,7 +18,7 @@ const Button = ({ children }) => {
         }
     }, []);
     return (
-        <button className="Button Button_secondary">{children}</button>
+        <ButtonStyle className="Button Button_secondary">{children}</ButtonStyle>
     )
 }
 

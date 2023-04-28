@@ -1,7 +1,5 @@
 import coursesMock from "../../utils/mock/courses.js";
 import Course from "../Course/Course.jsx";
-import "../Course/Course.scss";
-
 
 
 const Courses = () => {
