@@ -20,12 +20,14 @@ const Course_page = () => {
 
             setCourses(coursesMock);
 
+            //console.log(coursesMock); znaci tu postoje
+
         }, 1000);
     }, []);
 
     useEffect(() => {
 
-        courses && setCourse(courses.filter((course) => course.id === parseInt(id)));
+        courses && setCourse(courses.find((course) => course.id === parseInt(id)));
 
     }, [courses, id]) //osluskujem svaku promjenu na courses state varijabli
 

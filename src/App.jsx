@@ -36,7 +36,7 @@ function App() {
 
         </Route>
 
-        <Route path={"/course/:id"} element={<Course_page/>} />
+        <Route path={"/courses/:id"} element={<Course_page/>} />
 
       </Routes>
     </>

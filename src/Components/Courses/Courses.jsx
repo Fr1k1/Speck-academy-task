@@ -1,4 +1,4 @@
-import { courses } from "../../data";
+import coursesMock from "../../utils/mock/courses.js";
 import Course from "../Course/Course.jsx";
 import "../Course/Course.scss";
 
@@ -9,9 +9,9 @@ const Courses = () => {
         <>
 
 
-            {courses.map((section, i) => (
+            {coursesMock.map((section, i) => (
 
-                <Course imgSrc={section.imgSrc} key={i} imgAlt={section.imgAlt} title={section.title} subtitle={section.subtitle}
+                <Course imgSrc={section.imgSrc} id={i + 1} key={i} imgAlt={section.imgAlt} title={section.title} subtitle={section.subtitle}
                     time={section.time}
                 >
 
