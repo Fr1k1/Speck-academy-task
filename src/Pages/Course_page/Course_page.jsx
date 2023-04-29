@@ -7,7 +7,7 @@ import coursesMock from "../../utils/mock/courses";
 
 const Course_page = () => {
 
-    const { id } = useParams();
+    const { title } = useParams();
 
     const [courses, setCourses] = useState(null);
     const [course, setCourse] = useState(null);
@@ -27,9 +27,9 @@ const Course_page = () => {
 
     useEffect(() => {
 
-        courses && setCourse(courses.find((course) => course.id === parseInt(id)));
+        courses && setCourse(courses.find((course) => course.title === title));
 
-    }, [courses, id]) //osluskujem svaku promjenu na courses state varijabli
+    }, [courses, title]) //osluskujem svaku promjenu na courses state varijabli
 
 
     return (

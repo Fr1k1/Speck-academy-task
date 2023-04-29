@@ -6,7 +6,7 @@ import {  CourseWrapper, CourseFigure, CourseImg, CourseTitle, CourseSubtitle, C
 const Course = ({ imgSrc, imgAlt, title, subtitle, time, id }) => {
     return (
         <CourseWrapper>
-            <Link to={`/courses/${id}`}>
+            <Link to={`/courses/${title}`}>
 
                 <CourseFigure>
 
