@@ -7,7 +7,9 @@ const SearchBar = ({ placeholder, disabled, onValueChange }) => {
   const handleChange = (e) => {
     const inputValue = e.target.value;
     setValue(inputValue);
-    onValueChange(inputValue);
+    onValueChange(e);
+
+    console.log(e.target.value);
   };
 
   return (
