@@ -67,10 +67,19 @@ export const HeaderLink = styled(NavLink)`//ovo tu je nasljedivanje ()
 
 export const HeaderNav = styled.nav`
 
-        display: none;
+        //display: none;
+        //background-color: red;
 
-@media screen and (${breakpoints.desktop}) {
-      display: flex;
-      align-items: center;
-    }
+        @media screen and (${breakpoints.desktop}) {
+    display: flex;
+    align-items: center;
+    //background-color: blue; // Add styles specific to desktop media query
+  }
+
+  @media screen and (${breakpoints.mobileLarge}) {
+    display: flex;
+    align-items: center;
+    //background-color: red; // Add styles specific to mobileLarge media query
+  }
+
 `;

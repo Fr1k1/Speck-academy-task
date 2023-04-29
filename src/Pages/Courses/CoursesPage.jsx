@@ -2,14 +2,19 @@
 import Courses from "../../Components/Courses/Courses";
 import Grid from "../../Components/Grid/Grid";
 import Header from "../../Components/Header/Header";
+import SearchBar from "../../Components/SearchBar/SearcBar";
 import Section from "../../components/Section/Section";
 
 
 const CoursesPage = () => {
+
+    
+
     return (
         <div>
 
             <Header />
+
 
             <main>
 
@@ -21,6 +26,11 @@ const CoursesPage = () => {
 
 
                     <div>
+
+            <SearchBar/>
+
+            
+
                         <Grid>
 
                             <Courses />
