@@ -6,7 +6,7 @@ import Section from "../../Components/Section/Section";
 import coursesMock from "../../utils/mock/courses";
 import { Grid } from "../../utils/styles/generalStyles";
 import Course from "../../Components/Course/Course";
-import "./Homepage.scss";
+//import "./Homepage.scss";
 
 import { useState, useEffect } from "react";
 

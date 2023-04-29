@@ -1,4 +1,4 @@
-import "./CoursesPage.scss";
+//import "./CoursesPage.scss";
 import Courses from "../../Components/Courses/Courses";
 import Grid from "../../Components/Grid/Grid";
 import Header from "../../Components/Header/Header";

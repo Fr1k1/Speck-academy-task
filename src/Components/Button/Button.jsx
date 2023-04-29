@@ -2,7 +2,7 @@
 import { useEffect } from "react";
 import PropTypes from "prop-types";
 
-import { Button as ButtonStyle } from "./ButtonStyle";
+import { Button as ButtonStyle } from "../../utils/styles/generalStyles";
 
 
 
