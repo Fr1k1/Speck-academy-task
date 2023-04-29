@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { Link } from "react-router-dom";
 import {  CourseWrapper, CourseFigure, CourseImg, CourseTitle, CourseSubtitle, CourseTime } from "./CourseStyle";
 
-const Course = ({ imgSrc, imgAlt, title, subtitle, time, id }) => {
+const Course = ({ imgSrc, imgAlt, title, subtitle, time, }) => {
     return (
         <CourseWrapper>
             <Link to={`/courses/${title}`}>

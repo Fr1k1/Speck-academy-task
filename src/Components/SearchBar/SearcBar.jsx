@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
+import StyledSearchBar from './SearchBarStyle';
 
 const SearchBar = ({ placeholder, disabled, onValueChange }) => {
   const [value, setValue] = useState("");
@@ -13,7 +14,7 @@ const SearchBar = ({ placeholder, disabled, onValueChange }) => {
   };
 
   return (
-    <div className="search-bar">
+   <StyledSearchBar>
       <input
         type="text"
         placeholder={placeholder}
@@ -21,7 +22,9 @@ const SearchBar = ({ placeholder, disabled, onValueChange }) => {
         onChange={handleChange}
         disabled={disabled}
       />
-    </div>
+
+</StyledSearchBar>
+  
   );
 };
 

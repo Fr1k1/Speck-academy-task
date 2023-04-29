@@ -1,4 +1,4 @@
-import coursesMock from "../../utils/mock/courses.js";
+//import coursesMock from "../../utils/mock/courses.js";
 import Course from "../Course/Course.jsx";
 import { useState, useEffect } from "react";
 
