@@ -1,19 +1,19 @@
-import "./Section.scss";
+//import "./Section.scss";
 import PropTypes from "prop-types";
+import { Section as SectionWrapper, SectionInner, SectionSubtitle, SectionTitle } from "./SectionStyle";
 
 const Section = ({ title, subtitle, children }) => {
     return (
-        <section className="Section">
-            <div className="Section-Inner">
-                <h2 className="Section-Title">{title}</h2>
-                <p className="Section-Subtitle">
-                    {subtitle}
-                </p>
+        <SectionWrapper>
+            <SectionInner>
+
+                <SectionTitle>{title}</SectionTitle>
+                <SectionSubtitle>{subtitle}</SectionSubtitle>
+
                 {children}
-            </div>
+            </SectionInner>
 
-
-        </section>
+        </SectionWrapper>
     )
 }
 
