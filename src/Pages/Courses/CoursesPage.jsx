@@ -2,14 +2,15 @@ import Courses from "../../Components/Courses/Courses";
 import Grid from "../../Components/Grid/Grid";
 import Header from "../../Components/Header/Header";
 import SearchBar from "../../Components/SearchBar/SearcBar";
-import Section from "../../Components/Section/Section";
+import Section from "../../components/Section/Section";
 import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import coursesMock from "../../utils/mock/courses";
 import { MutatingDots } from "react-loader-spinner";
 
 const CoursesPage = () => {
-  const [filteredCourses, setFilteredCourses] = useState(null);
+  const [filteredCourses, setFilteredCourses] = useState(coursesMock);
+  const [loading, setLoading] = useState(false);
 
   const handleSearch = (event) => {
     const searchValue = (event && event.target && event.target.value) ? event.target.value.toLowerCase() : '';
@@ -18,10 +19,12 @@ const CoursesPage = () => {
     );
     setFilteredCourses(filtered);
   };
-
+  
   useEffect(() => {
+    setLoading(true);
     setTimeout(() => {
       setFilteredCourses(coursesMock);
+      setLoading(false);
     }, 1000);
   }, []);
 
@@ -36,17 +39,12 @@ const CoursesPage = () => {
           <div>
             <SearchBar
               placeholder={"Search courses"}
-              disabled={false}
+              disabled={loading} // disable the search bar if loading is true
               onValueChange={handleSearch}
             />
-            {filteredCourses ? (
-              <Grid>
-                <Courses courses={filteredCourses} />
-              </Grid>
-            ) : (
+            {loading ? (
               <div style={{ display: "flex", justifyContent: "center" }}>
                 <MutatingDots
-                  wrapperStyle={{ height: 500 }}
                   height={100}
                   width={100}
                   color="#4fa94d"
@@ -55,6 +53,10 @@ const CoursesPage = () => {
                   ariaLabel="mutating-dots-loading"
                 />
               </div>
+            ) : (
+              <Grid>
+                <Courses courses={filteredCourses} />
+              </Grid>
             )}
           </div>
         </Section>
@@ -62,6 +64,8 @@ const CoursesPage = () => {
     </div>
   );
 };
+
+export default CoursesPage;
 
 CoursesPage.propTypes = {
   filteredCourses: PropTypes.arrayOf(
@@ -76,5 +80,3 @@ CoursesPage.propTypes = {
     })
   ).isRequired,
 };
-
-export default CoursesPage;
