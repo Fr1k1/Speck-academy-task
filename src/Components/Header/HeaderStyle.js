@@ -13,7 +13,7 @@ export const HeaderInner = styled.div`
 
     height: 80px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
     padding: 0 24px;
 
@@ -32,6 +32,8 @@ export const HeaderInner = styled.div`
       max-width: 1280px;
 
     }
+
+
 `;
 
 export const Hamburger = styled(HamburgerIcon)`
@@ -63,23 +65,39 @@ export const HeaderLink = styled(NavLink)`//ovo tu je nasljedivanje ()
         color:${colors.primary};
     }
 
+
+  @media screen and (max-width: 1023px) {
+    margin-right: 0;
+  }
+
 `;
 
 export const HeaderNav = styled.nav`
 
-        //display: none;
-        //background-color: red;
-
-        @media screen and (${breakpoints.desktop}) {
+  @media screen and (max-width: 1023px) {
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 1000;
+    margin-left: 50px;
+    margin-right: 50px;
+    position: absolute;
     align-items: center;
-    //background-color: blue; // Add styles specific to desktop media query
+    text-align: center;
+    WIDTH: 100% !important;
+    left: -3.1rem;
+    top: 0rem;
+    background-color: white;
+
+    padding-bottom: 10px;
   }
 
-  @media screen and (${breakpoints.mobileLarge}) {
+  @media screen and (${breakpoints.desktop}) {
     display: flex;
     align-items: center;
-    //background-color: red; // Add styles specific to mobileLarge media query
   }
-
 `;
+
+
+
+

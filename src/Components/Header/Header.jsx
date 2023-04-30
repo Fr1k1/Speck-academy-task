@@ -3,8 +3,9 @@
 import { useEffect } from "react";
 import { Header as HeaderWrapper, HeaderInner, LogoImg} from "./HeaderStyle";
 import { Link } from "react-router-dom";
-import Navbar from "../Navbar/Navbar";
 //import styled from 'styled-components';
+
+import Navbar from "../Navbar/Navbar";
 
 
 const Header = () => {
@@ -39,7 +40,8 @@ const Header = () => {
 
                 </Link>
 
-                <Navbar />
+
+           <Navbar/>
 
             </HeaderInner>
         </HeaderWrapper>
