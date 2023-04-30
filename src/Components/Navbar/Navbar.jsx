@@ -26,10 +26,15 @@ const Navbar = () => {
 
         <HeaderLink onClick={() => setMobileNavbar(false)}  to={"/courses"}>Courses</HeaderLink>
 
+        <HeaderLink onClick={() => setMobileNavbar(false)}  to={"/courses"}>Login</HeaderLink>
+
+
         <Link to="/register">
 
             <Button onClick={()=>navigate("/register")}>Register</Button>
         </Link>
+
+
 
     </HeaderNav>)}
 

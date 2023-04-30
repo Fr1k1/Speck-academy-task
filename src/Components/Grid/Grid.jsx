@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types'
-import "./Grid.scss";
 import {Grid as GridWrapper} from "../../utils/styles/generalStyles";
 
 const Grid = ({ children }) => {

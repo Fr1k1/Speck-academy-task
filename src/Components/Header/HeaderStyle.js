@@ -84,7 +84,7 @@ export const HeaderNav = styled.nav`
     position: absolute;
     align-items: center;
     text-align: center;
-    WIDTH: 100% !important;
+    width: 100%;
     left: -3.1rem;
     top: 0rem;
     background-color: white;
