@@ -7,36 +7,36 @@ import { useNavigate } from 'react-router-dom'
 
 const Navbar = () => {
 
-    const navigate=useNavigate();
+  const navigate = useNavigate();
 
-    const [mobileNavbar, setMobileNavbar] = useState(false);
+  const [mobileNavbar, setMobileNavbar] = useState(false);
 
-    const mobile = window.innerWidth <= 1024 ? true : false;
+  const mobile = window.innerWidth <= 1024 ? true : false;
 
   return (
 
     <>
 
-{mobileNavbar === false && mobile === true ? (
-    <Hamburger onClick={() => setMobileNavbar(true)} />): (
-    <HeaderNav>
+      {mobileNavbar === false && mobile === true ? (
+        <Hamburger onClick={() => setMobileNavbar(true)} />) : (
+        <HeaderNav>
 
-        <HeaderLink onClick={() => setMobileNavbar(false)}  to={"/"}>Home</HeaderLink>
-
-
-        <HeaderLink onClick={() => setMobileNavbar(false)}  to={"/courses"}>Courses</HeaderLink>
-
-        <HeaderLink onClick={() => setMobileNavbar(false)}  to={"/courses"}>Login</HeaderLink>
+          <HeaderLink onClick={() => setMobileNavbar(false)} to="/" exact activeClassName="active" isActive={(match) => match.url === '/'}>Home</HeaderLink>
 
 
-        <Link to="/register">
+          <HeaderLink onClick={() => setMobileNavbar(false)} to="/courses" exact activeClassName="active" isActive={(match) => match.url === '/courses'}>Courses</HeaderLink>
 
-            <Button onClick={()=>navigate("/register")}>Register</Button>
-        </Link>
-
+          <HeaderLink onClick={() => setMobileNavbar(false)} to="/login" exact activeClassName="active" isActive={(match) => match.url === '/login'}>Login</HeaderLink>
 
 
-    </HeaderNav>)}
+          <Link to="/register">
+
+            <Button onClick={() => navigate("/register")}>Register</Button>
+          </Link>
+
+
+
+        </HeaderNav>)}
 
     </>
   )

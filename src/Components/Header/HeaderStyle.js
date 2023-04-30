@@ -61,6 +61,11 @@ export const HeaderLink = styled(NavLink)`//ovo tu je nasljedivanje ()
     line-height: 80px;
     transition: color 0.3s ease-out;
 
+   &.active {
+    font-weight: bold;
+    text-decoration: underline;
+   }
+
     &:hover {
         color:${colors.primary};
     }
