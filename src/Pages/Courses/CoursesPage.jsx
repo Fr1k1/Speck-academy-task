@@ -2,13 +2,14 @@ import Courses from "../../Components/Courses/Courses";
 import Grid from "../../Components/Grid/Grid";
 import Header from "../../Components/Header/Header";
 import SearchBar from "../../Components/SearchBar/SearcBar";
-import Section from "../../components/Section/Section";
-import { useState } from "react";
+import Section from "../../Components/Section/Section";
+import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import coursesMock from "../../utils/mock/courses";
+import { MutatingDots } from "react-loader-spinner";
 
 const CoursesPage = () => {
-  const [filteredCourses, setFilteredCourses] = useState(coursesMock);
+  const [filteredCourses, setFilteredCourses] = useState(null);
 
   const handleSearch = (event) => {
     const searchValue = (event && event.target && event.target.value) ? event.target.value.toLowerCase() : '';
@@ -17,7 +18,12 @@ const CoursesPage = () => {
     );
     setFilteredCourses(filtered);
   };
-  
+
+  useEffect(() => {
+    setTimeout(() => {
+      setFilteredCourses(coursesMock);
+    }, 1000);
+  }, []);
 
   return (
     <div>
@@ -33,17 +39,29 @@ const CoursesPage = () => {
               disabled={false}
               onValueChange={handleSearch}
             />
-            <Grid>
-              <Courses courses={filteredCourses} />
-            </Grid>
+            {filteredCourses ? (
+              <Grid>
+                <Courses courses={filteredCourses} />
+              </Grid>
+            ) : (
+              <div style={{ display: "flex", justifyContent: "center" }}>
+                <MutatingDots
+                  wrapperStyle={{ height: 500 }}
+                  height={100}
+                  width={100}
+                  color="#4fa94d"
+                  secondaryColor="#4fa94d"
+                  radius={12.5}
+                  ariaLabel="mutating-dots-loading"
+                />
+              </div>
+            )}
           </div>
         </Section>
       </main>
     </div>
   );
 };
-
-export default CoursesPage;
 
 CoursesPage.propTypes = {
   filteredCourses: PropTypes.arrayOf(
@@ -58,3 +76,5 @@ CoursesPage.propTypes = {
     })
   ).isRequired,
 };
+
+export default CoursesPage;
