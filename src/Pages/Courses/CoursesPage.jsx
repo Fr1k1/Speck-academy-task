@@ -78,5 +78,5 @@ CoursesPage.propTypes = {
       progress: PropTypes.number.isRequired,
       rating: PropTypes.number.isRequired,
     })
-  ).isRequired,
+  ),
 };

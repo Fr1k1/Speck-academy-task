@@ -21,12 +21,12 @@ const Navbar = () => {
         <Hamburger onClick={() => setMobileNavbar(true)} />) : (
         <HeaderNav>
 
-          <HeaderLink onClick={() => setMobileNavbar(false)} to="/" exact activeClassName="active" isActive={(match) => match.url === '/'}>Home</HeaderLink>
+          <HeaderLink onClick={() => setMobileNavbar(false)} to="/"   $isActive={(match) => match.url === '/'}>Home</HeaderLink>
 
 
-          <HeaderLink onClick={() => setMobileNavbar(false)} to="/courses" exact activeClassName="active" isActive={(match) => match.url === '/courses'}>Courses</HeaderLink>
+          <HeaderLink onClick={() => setMobileNavbar(false)} to="/courses"   $isActive={(match) => match.url === '/courses'}>Courses</HeaderLink>
 
-          <HeaderLink onClick={() => setMobileNavbar(false)} to="/login" exact activeClassName="active" isActive={(match) => match.url === '/login'}>Login</HeaderLink>
+          <HeaderLink onClick={() => setMobileNavbar(false)} to="/login"   $isActive={(match) => match.url === '/login'}>Login</HeaderLink>
 
 
           <Link to="/register">
