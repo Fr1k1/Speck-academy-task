@@ -13,7 +13,7 @@ export const HeaderInner = styled.div`
 
     height: 80px;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
     padding: 0 24px;
 
@@ -57,7 +57,7 @@ path {
 `;
 
 export const HeaderLink = styled(NavLink)`//ovo tu je nasljedivanje ()
- margin-right: 32px;
+ //margin-right: 32px;
     line-height: 80px;
     transition: color 0.3s ease-out;
 
@@ -70,36 +70,41 @@ export const HeaderLink = styled(NavLink)`//ovo tu je nasljedivanje ()
         color:${colors.primary};
     }
 
-
-  @media screen and (max-width: 1023px) {
-    margin-right: 0;
+//bolje da napravim komponentu posebnu
+  @media screen and (${breakpoints.desktop}) {
+    margin-right: 32px;
   }
 
 `;
 
-export const HeaderNav = styled.nav`
+export const HeaderNav = styled.nav`  //posto je mobile first ne trebam breakpoint za to
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 1000;
+  margin-left: 50px;
+  margin-right: 50px;
+  position: absolute;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  left: -3.1rem;
+  top: 0rem;
+  background-color: white;
+  padding-bottom: 10px;
 
-  @media screen and (max-width: 1023px) {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    z-index: 1000;
-    margin-left: 50px;
-    margin-right: 50px;
-    position: absolute;
-    align-items: center;
-    text-align: center;
-    width: 100%;
-    left: -3.1rem;
-    top: 0rem;
-    background-color: white;
-
-    padding-bottom: 10px;
-  }
-
+  
   @media screen and (${breakpoints.desktop}) {
-    display: flex;
-    align-items: center;
+    //display: flex; ovo ne treba jer se nasljeduje
+    //align-items: center;
+    //background-color: blue;
+    flex-direction: row;
+    position: initial;
+    padding-bottom: 0;
+    //justify-content: space-between;
+    justify-content: end;
+   
+
   }
 `;
 
