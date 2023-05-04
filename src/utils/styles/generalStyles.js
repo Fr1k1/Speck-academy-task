@@ -1,5 +1,7 @@
-import styled from "styled-components";
-import { colors, breakpoints } from "./theme";
+import styled, { css } from "styled-components";
+import { colors, breakpoints, fonts } from "./theme";
+import { Form as FormFormik, Field as FieldFormik, ErrorMessage as ErrorMessageFormik } from "formik";
+
 
 export const Button = styled.button`
   display: inline-block;
@@ -14,6 +16,8 @@ export const Button = styled.button`
   &_secondary {
     padding: 16px 20px;
   }
+
+  //${props => props.isSecondary && ``}
 
   &:hover {
     background-color: ${colors.primary};
@@ -39,3 +43,68 @@ display: grid;
     grid-template-columns: repeat(4, 1fr);
   }
 `
+
+export const Form = styled(FormFormik)`
+  @media screen and (${breakpoints.tabletSmall}) {
+    max-width:400px;
+    margin: 0 auto;
+  }
+
+`
+
+export const FormRow = styled.div`
+
+
+    margin-bottom: 32px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+`
+
+const FieldStyle = css`
+
+
+border: 1px solid ${colors.textSecondary};
+  border-radius: 6px;
+  width: 100%;
+  line-height: 50px;
+  height: 50px;
+  padding: 0 12px;
+  outline: none;
+  font-size: 14px;
+  font-family: ${fonts.primary};
+
+  &:focus {
+    border: 1px solid ${colors.textPrimary};
+  }
+
+  @media screen and (${breakpoints.desktop}) {
+    font-size: 16px;
+  }
+
+`
+
+export const Field = styled(FieldFormik)`
+
+${FieldStyle};
+
+`
+
+export const Select = styled.select`
+${FieldStyle};
+
+
+`
+
+export const ErrorMessage = styled(ErrorMessageFormik)`
+font-size: 14px;
+color:${colors.primary};
+padding-top: 8px;
+
+`
+
+export const Option = styled.option`
+
+`
+

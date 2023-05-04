@@ -19,7 +19,7 @@ const CoursesPage = () => {
     );
     setFilteredCourses(filtered);
   };
-  
+
   useEffect(() => {
     setLoading(true);
     setTimeout(() => {
@@ -30,7 +30,7 @@ const CoursesPage = () => {
 
   return (
     <div>
-      <Header />
+
       <main>
         <Section
           title="Browse our all courses"

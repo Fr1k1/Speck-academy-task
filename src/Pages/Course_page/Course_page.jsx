@@ -37,7 +37,7 @@ const Course_page = () => {
         course && (
             <div>
 
-                <Header />
+            
                 <Section title={course.title}>
                     <SinglePage
                         imgSrc={course.imgSrc}

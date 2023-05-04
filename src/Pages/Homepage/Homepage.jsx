@@ -18,7 +18,7 @@ const Homepage = () => {
 
   return (
     <div>
-      <Header />
+     
       <main>
         <Hero />
         <Section
