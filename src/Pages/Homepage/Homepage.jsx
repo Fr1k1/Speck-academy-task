@@ -1,4 +1,3 @@
-import Header from "../../Components/Header/Header";
 import Hero from "../../Components/Hero/Hero";
 import Section from "../../Components/Section/Section";
 import coursesMock from "../../utils/mock/courses";
@@ -18,7 +17,7 @@ const Homepage = () => {
 
   return (
     <div>
-     
+
       <main>
         <Hero />
         <Section
@@ -42,7 +41,7 @@ const Homepage = () => {
           ) : (
             <div style={{ display: "flex", justifyContent: "center" }}>
               <MutatingDots
-              wrapperStyle={{height:500}}
+                wrapperStyle={{ height: 500 }}
                 height={100}
                 width={100}
                 color="#4fa94d"

@@ -1,6 +1,5 @@
 import Courses from "../../Components/Courses/Courses";
 import Grid from "../../Components/Grid/Grid";
-import Header from "../../Components/Header/Header";
 import SearchBar from "../../Components/SearchBar/SearcBar";
 import Section from "../../Components/Section/Section";
 import { useState, useEffect } from "react";

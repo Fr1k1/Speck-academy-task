@@ -7,8 +7,6 @@ import {
     Field,
     Form,
     FormRow,
-    Option,
-    Select,
 } from "../../utils/styles/generalStyles";
 
 const SignIn = () => {

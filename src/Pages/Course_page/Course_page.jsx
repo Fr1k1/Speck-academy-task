@@ -1,6 +1,5 @@
 import Section from "../../Components/Section/Section";
 import SinglePage from "../../Components/SinglePage/SinglePage";
-import Header from "../../Components/Header/Header";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import coursesMock from "../../utils/mock/courses";
@@ -37,7 +36,7 @@ const Course_page = () => {
         course && (
             <div>
 
-            
+
                 <Section title={course.title}>
                     <SinglePage
                         imgSrc={course.imgSrc}

@@ -5,6 +5,7 @@ import Course_page from "./Pages/Course_page/Course_page"
 import SignIn from "./Pages/SignIn/SignIn"
 import Register from "./Pages/Register/Register"
 import Header from "./Components/Header/Header"
+import ProfilePage from "./Pages/ProfilePage/ProfilePage"
 
 
 function App() {
@@ -36,6 +37,18 @@ function App() {
             element={
 
               <CoursesPage />
+            }
+
+          >
+
+
+          </Route>
+
+          <Route path="/profile"
+
+            element={
+
+              <ProfilePage />
             }
 
           >
