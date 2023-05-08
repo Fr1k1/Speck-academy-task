@@ -15,7 +15,7 @@ export const ResetTitle = styled.h4`
 margin-bottom:10px;
 `
 
-export const ResetDescription = styled.p`
+export const ResetDescription = styled.div`
 margin-bottom: 15px;
 `
 
