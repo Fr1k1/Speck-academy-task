@@ -1,6 +1,5 @@
 import { ResetDescription, ResetTitle, ResetWrapper } from "./ResetPasswordStyles";
-import { Formik } from "formik";
-import * as Yup from "yup";
+
 
 
 import PropTypes from "prop-types";

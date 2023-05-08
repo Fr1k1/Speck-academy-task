@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { breakpoints, colors } from "../../utils/styles/theme";
+import { colors } from "../../utils/styles/theme";
 
 export const Button = styled.button`
   //display: inline-block;
