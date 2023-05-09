@@ -9,8 +9,8 @@ import {
     Option,
     Select,
 } from "../../utils/styles/generalStyles";
+import { Button } from '../../utils/styles/generalStyles'
 
-import { Button } from "../ProfilePage/ProfilePageStyles";
 import { useState } from "react";
 import ResetPassword from "../../Components/ResetPassword/ResetPassword";
 //import "./ProfilePage.scss";
@@ -36,7 +36,7 @@ const ProfilePage = () => {
     return (
         <Section title={"Profile"}>
 
-            <Button onClick={() => setDisabled(!disabled)}>{disabled ? "Edit" : "Cancel"}</Button>
+            <Button isOutline={disabled} onClick={() => setDisabled(!disabled)}>{disabled ? "Edit" : "Cancel"}</Button>
 
 
 
@@ -223,7 +223,8 @@ const ProfilePage = () => {
                                         />
                                     </FormRow>
                                     <FormRow>
-                                        <Button isSecondary type="submit" disabled={formik.isSubmitting}>
+                                        <Button isSecondary type="submit" disabled={formik.isSubmitting} style={{ display: disabled ? 'none' : 'block' }} >
+
                                             {formik.isSubmitting ? "Processing..." : "Update user data"}
                                         </Button>
                                     </FormRow>
@@ -245,14 +246,17 @@ const ProfilePage = () => {
 
                                     }}
                                     validationSchema={Yup.object({
-                                        oldPassword: Yup.string(),
+                                        oldPassword: Yup.string().required("Old password is required"),
                                         newPassword: Yup.string()
                                             .min(8, "Password must be at least 8 characters long")
                                             .required("Password is required!"),
-                                        newPasswordRepeat: Yup.string().oneOf(
-                                            [Yup.ref("newPassword"), null],
-                                            "Passwords must match"
-                                        ),
+                                        newPasswordRepeat: Yup.string().test(
+                                            "passwords-match",
+                                            "Passwords must match!",
+                                            function (value) {
+                                                return this.parent.newPassword === value;
+                                            }),
+
                                     })}
                                     onSubmit={(values, { setSubmitting, resetForm }) => {
                                         console.log(values);
@@ -308,12 +312,12 @@ const ProfilePage = () => {
                                             <FormRow>
                                                 <Field
                                                     type="password"
-                                                    name="repeatNewPassword"
+                                                    name="newPasswordRepeat"
                                                     placeholder="Repeat new password..."
                                                     disabled={formik.isSubmitting}
                                                 />
                                                 <ErrorMessage
-                                                    name="repeatNewPassword"
+                                                    name="newPasswordRepeat"
                                                     component={"div"} // component div je da se preuzme i css error teksta
                                                 />
                                             </FormRow>

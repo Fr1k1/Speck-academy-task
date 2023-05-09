@@ -10,20 +10,32 @@ export const Button = styled.button`
   background-color: ${colors.primary};
   color: ${colors.secondary};
   transition: background-color 0.3s ease-out;
-  outline: none;
   border: none;
+  outline: none;
 
-  &_secondary {
+  ${(props) =>
+    props.isSecondary && `
     padding: 16px 20px;
-  }
+  `}
 
-  //${props => props.isSecondary && ``}
+  ${(props) =>
+    props.isOutline && `
+    background-color: ${colors.secondary};
+    border: 1px solid ${colors.primary};
+    color: ${colors.primary};
+    margin-right: 30px; /* ovo sam ja dodala rucno*/
+  `}
 
   &:hover {
-    background-color: ${colors.primary};
+    background-color: ${colors.primaryDark}; 
+
+    ${(props) =>
+    props.isOutline &&
+    `
+      background-color: ${colors.primary};
+      color: ${colors.secondary};
+    `}
   }
-
-
 `
 
 export const Grid = styled.div`

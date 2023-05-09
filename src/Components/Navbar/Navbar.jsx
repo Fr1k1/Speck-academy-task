@@ -28,13 +28,13 @@ const Navbar = () => {
 
           <HeaderLink onClick={() => setMobileNavbar(false)} to="/profile" $isActive={(match) => match.url === '/profile'}>Profile</HeaderLink>
 
-
-          <HeaderLink onClick={() => setMobileNavbar(false)} to="/login" $isActive={(match) => match.url === '/login'}>Login</HeaderLink>
-
+          <Link to="/login">
+            <Button isOutline onClick={() => navigate("/login")}>Sign in</Button>
+          </Link>
 
           <Link to="/register">
 
-            <Button onClick={() => navigate("/register")}>Register</Button>
+            <Button isOutline={false} onClick={() => navigate("/register")}>Register</Button>
           </Link>
 
 
