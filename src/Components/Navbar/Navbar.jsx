@@ -29,12 +29,12 @@ const Navbar = () => {
           <HeaderLink onClick={() => setMobileNavbar(false)} to="/profile" $isActive={(match) => match.url === '/profile'}>Profile</HeaderLink>
 
           <Link to="/login">
-            <Button isOutline onClick={() => navigate("/login")}>Sign in</Button>
+            <Button isOutline mobitel onClick={() => navigate("/login")}>Sign in</Button>
           </Link>
 
           <Link to="/register">
 
-            <Button isOutline={false} onClick={() => navigate("/register")}>Register</Button>
+            <Button isOutline={false} mobitel onClick={() => navigate("/register")}>Register</Button>
           </Link>
 
 

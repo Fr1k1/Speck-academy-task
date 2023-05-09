@@ -12,6 +12,7 @@ export const Button = styled.button`
   transition: background-color 0.3s ease-out;
   border: none;
   outline: none;
+  margin-left: 20px;
 
   ${(props) =>
     props.isSecondary && `
@@ -23,7 +24,7 @@ export const Button = styled.button`
     background-color: ${colors.secondary};
     border: 1px solid ${colors.primary};
     color: ${colors.primary};
-    margin-right: 30px; /* ovo sam ja dodala rucno*/
+    
   `}
 
   &:hover {
@@ -36,6 +37,16 @@ export const Button = styled.button`
       color: ${colors.secondary};
     `}
   }
+
+  ${(props) =>
+    props.mobitel &&
+    `
+      margin:15px;
+    `}
+
+
+
+  
 `
 
 export const Grid = styled.div`
