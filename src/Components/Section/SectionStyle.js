@@ -33,6 +33,26 @@ export const SectionTitle = styled.h2`
     margin-bottom: 32px;
     font-size: 28px;
 
+
+${(props) =>
+    props.displayIsFlex &&
+    `
+    display:flex;
+    justify-content: space-between;
+  `}
+
+${(props) =>
+    props.removeMargin &&
+    `
+    margin: 0;
+  `}
+
+${(props) =>
+    props.maxWidth100 &&
+    `
+    max-width:100%;
+  `}
+
     @media screen and (${breakpoints.tablet}) {
       font-size: 32px;
     }

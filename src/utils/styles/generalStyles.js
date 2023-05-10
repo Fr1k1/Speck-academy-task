@@ -12,7 +12,7 @@ export const Button = styled.button`
   transition: background-color 0.3s ease-out;
   border: none;
   outline: none;
-  margin-left: 20px;
+  //margin-left: 20px;
 
   ${(props) =>
     props.isSecondary && `
@@ -42,6 +42,12 @@ export const Button = styled.button`
     props.mobitel &&
     `
       margin:15px;
+    `}
+
+${(props) =>
+    props.floatRight &&
+    `
+      float:right;
     `}
 
 
