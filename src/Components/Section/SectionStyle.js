@@ -48,9 +48,9 @@ ${(props) =>
   `}
 
 ${(props) =>
-    props.maxWidth100 &&
+    props.maxWidth95 &&
     `
-    max-width:100%;
+    max-width:95%;
   `}
 
     @media screen and (${breakpoints.tablet}) {

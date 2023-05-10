@@ -35,7 +35,7 @@ const ProfilePage = () => {
 
     const [disabled, setDisabled] = useState(true);
     return (
-        <Section title={"Profile"} displayIsFlex removeMargin maxWidth100 button={<Button isOutline={disabled} onClick={() => setDisabled(!disabled)}>{disabled ? "Edit" : "Cancel"}</Button>}>
+        <Section title={"Profile"} displayIsFlex removeMargin maxWidth95 button={<Button isOutline={disabled} onClick={() => setDisabled(!disabled)}>{disabled ? "Edit" : "Cancel"}</Button>}>
 
 
 
