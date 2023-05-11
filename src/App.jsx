@@ -6,31 +6,26 @@ import SignIn from "./Pages/SignIn/SignIn"
 import Register from "./Pages/Register/Register"
 import Header from "./Components/Header/Header"
 import ProfilePage from "./Pages/ProfilePage/ProfilePage"
+import { useState } from "react"
 
 
 function App() {
+
+  const [isAdmin, setIsAdmin] = useState(false);
+  const [isLogedIn, setIsLogedIn] = useState(false);
+
 
   return (
     <>
 
       <Header />
-
       <main>
-
         <Routes>
-
-          <Route path="/"
-
-
-            element={
-
-              <Homepage />
-            }
+          <Route path="/" element={<Homepage />}> </Route>
 
 
-          >
 
-          </Route>
+
 
           <Route path="/courses"
 
@@ -58,7 +53,7 @@ function App() {
 
           <Route path={"/courses/:title"} element={<Course_page />} />
 
-          <Route path="/login" element={<SignIn />} />
+          <Route path="/login" element={<SignIn setIsLogedIn={setIsLogedIn} setIsAdmin={setIsAdmin} />} />
 
           <Route path="/register" element={<Register />} />
 

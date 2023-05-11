@@ -7,11 +7,17 @@ import {
     Field,
     Form,
     FormRow,
+    FormSuccessMessage,
     Option,
     Select,
 } from "../../utils/styles/generalStyles";
+import { useState } from "react";
+
+import { registerUser } from "../../api/users";
 
 const Register = () => {
+
+    const [successMessage, setSuccessMessage] = useState(null);
     return (
         <Section title="Register">
             <Formik
@@ -22,7 +28,7 @@ const Register = () => {
                     password: "",
                     passwordRepeat: "",
                     githubUsername: "",
-                    zaplinUsername: "",
+                    zeplinUsername: "",
                     activeFacultyYear: "",
                     isAdmin: false,
                 }}
@@ -43,7 +49,7 @@ const Register = () => {
                         }
                     ),
                     githubUsername: Yup.string().required("Github username is required!"),
-                    zaplinUsername: Yup.string().required("Zaplin username is required!"),
+                    zeplinUsername: Yup.string().required("Zaplin username is required!"),
                     activeFacultyYear: Yup.string().required(
                         "Active faculty year is required!"
                     ),
@@ -51,32 +57,52 @@ const Register = () => {
                 })}
                 onSubmit={(values, { setSubmitting, resetForm }) => {
                     console.log(values);
-                    // alert(JSON.stringify(values, null, 2));
-                    setTimeout(() => {
-                        const data = {
-                            first_name: values.firstName,
-                            last_name: values.lastName,
-                            email: values.email,
-                            password: values.password,
-                            zaplin_username: values.zaplinUsername,
-                            github_username: values.githubUsername,
-                            active_faculty_year:
-                                parseInt(values.activeFacultyYear) === 0
-                                    ? null
-                                    : parseInt(values.activeFacultyYear),
-                            is_admin: false,
-                        };
 
-                        alert(JSON.stringify(data, null, 2));
-                        setSubmitting(false); // da je zavrsilo
+                    const data = {
+                        first_name: values.firstName,
+                        last_name: values.lastName,
+                        email: values.email,
+                        password: values.password,
+                        zeplin_username: values.zeplinUsername,
+                        github_username: values.githubUsername,
+                        active_faculty_year:
+                            parseInt(values.activeFacultyYear) === 0
+                                ? null
+                                : parseInt(values.activeFacultyYear),
+                        is_admin: false,
+                    };
+
+
+
+                    registerUser(data).then((res) => {
+                        //console.log(res);
                         resetForm();
-                    }, 1000);
+
+                        setSuccessMessage({ error: false, message: "User is registered successfully" });
+                        setTimeout(() => {
+                            setSuccessMessage(null);
+                        }, 2000)
+
+                    }).catch((res) => {
+                        console.log(res);
+                        setSuccessMessage({ error: true, message: "There was an error...F" });
+
+                    }).finally(() => {
+                        setSubmitting(false);
+                    });
+
+
                 }}
             >
                 {(formik) => (
                     // tu sad slazemo svoju formu
 
                     <Form>
+                        {successMessage && (<FormRow>
+                            <FormSuccessMessage isError={successMessage.error}>
+                                {successMessage.message}
+                            </FormSuccessMessage>
+                        </FormRow>)}
                         <FormRow>
                             <Field
                                 type="text"
@@ -158,12 +184,12 @@ const Register = () => {
                         <FormRow>
                             <Field
                                 type="text"
-                                name="zaplinUsername"
+                                name="zeplinUsername"
                                 placeholder="Zaplin username..."
                                 disabled={formik.isSubmitting}
                             />
                             <ErrorMessage
-                                name="zaplinUsername"
+                                name="zeplinUsername"
                                 component={"div"} // component div je da se preuzme i css error teksta
                             />
                         </FormRow>

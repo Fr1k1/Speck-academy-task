@@ -7,9 +7,15 @@ import {
     Field,
     Form,
     FormRow,
+    FormSuccessMessage,
 } from "../../utils/styles/generalStyles";
+import { getUsers, loginUser } from "../../api/users";
+import { useState } from "react";
 
-const SignIn = () => {
+const SignIn = ({ setIsLoggedIn, setIsAdmin }) => {
+
+    const [successMessage, setSuccessMessage] = useState(null);
+
     return (
         <Section title="Sign in">
             <Formik
@@ -29,29 +35,50 @@ const SignIn = () => {
                         .required("Password is required!"),
 
                 })}
-                onSubmit={(values, { setSubmitting, resetForm }) => {
-                    console.log(values);
-                    // alert(JSON.stringify(values, null, 2));
-                    setTimeout(() => {
-                        const data = {
+                onSubmit={async (values, { setSubmitting, resetForm }) => {
 
-                            email: values.email,
-                            password: values.password,
+                    try {
+                        const response = await loginUser(values);
 
 
-                        };
+                        const users = await getUsers(response.access_token);
 
-                        alert(JSON.stringify(data, null, 2));
-                        setSubmitting(false); // da je zavrsilo
+
+
+                        const user = users.data.find((user) => user.email == values.email)
+                        setSuccessMessage({ error: false, message: "User " + user.first_name + " " + user.last_name + " is loged in successfully" });
+                        setTimeout(() => {
+                            setSuccessMessage(null);
+                        }, 2000)
+
+                        localStorage.setItem('jwt_token', response.access_token);
+                        setIsAdmin(user.is_admin);
+                        setIsLoggedIn(response.access_token) //true ili false
+
                         resetForm();
-                    }, 1000);
+
+                    } catch (err) {
+
+                        setSuccessMessage({ error: true, message: "User is not loged in successfully" });
+
+
+                    } finally {
+                        setSubmitting(false);
+
+                    }
+
+
                 }}
             >
                 {(formik) => (
                     // tu sad slazemo svoju formu
 
                     <Form>
-
+                        {successMessage && (<FormRow>
+                            <FormSuccessMessage isError={successMessage.error}>
+                                {successMessage.message}
+                            </FormSuccessMessage>
+                        </FormRow>)}
 
 
 
