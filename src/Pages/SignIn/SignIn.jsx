@@ -11,6 +11,7 @@ import {
 } from "../../utils/styles/generalStyles";
 import { getUsers, loginUser } from "../../api/users";
 import { useState } from "react";
+import PropTypes from "prop-types";
 
 const SignIn = ({ setIsLoggedIn, setIsAdmin, isLogedIn, isAdmin }) => {
   const [successMessage, setSuccessMessage] = useState(null);
@@ -52,12 +53,10 @@ const SignIn = ({ setIsLoggedIn, setIsAdmin, isLogedIn, isAdmin }) => {
 
             localStorage.setItem("jwt_token", response.access_token);
 
-            console.log("Je li admin" + JSON.stringify(user.is_admin));
             localStorage.setItem("is_admin", user.is_admin);
 
             setIsAdmin(user.is_admin);
             setIsLoggedIn(response.access_token);
-            console.log("Je li logiran" + isLogedIn);
 
             resetForm();
           } catch (err) {
@@ -118,6 +117,13 @@ const SignIn = ({ setIsLoggedIn, setIsAdmin, isLogedIn, isAdmin }) => {
       </Formik>
     </Section>
   );
+};
+
+SignIn.propTypes = {
+  isAdmin: PropTypes.bool,
+  isLogedIn: PropTypes.bool,
+  setIsAdmin: PropTypes.func,
+  setIsLoggedIn: PropTypes.func,
 };
 
 export default SignIn;

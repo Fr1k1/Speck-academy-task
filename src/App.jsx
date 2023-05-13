@@ -17,8 +17,6 @@ function App() {
     localStorage.getItem("jwt_token") ? true : false
   );
 
-  console.log("Is logged in je" + isLogedIn);
-
   return (
     <>
       <Header

@@ -4,6 +4,7 @@ import { HeaderNav, HeaderLink } from "../Header/HeaderStyle";
 import { Button } from "../../utils/styles/generalStyles";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import PropTypes from "prop-types";
 
 const Navbar = ({ isAdmin, isLogedIn, setIsAdmin, setIsLoggedIn }) => {
   const logoutUser = () => {
@@ -18,8 +19,7 @@ const Navbar = ({ isAdmin, isLogedIn, setIsAdmin, setIsLoggedIn }) => {
   const [mobileNavbar, setMobileNavbar] = useState(false);
 
   const mobile = window.innerWidth <= 1024 ? true : false;
-  //console.log("Navbar veli da je isAdmin" + isAdmin);
-  //console.log("Is logged in je" + isLogedIn);
+
   return (
     <>
       {mobileNavbar === false && mobile === true ? (
@@ -117,6 +117,13 @@ const Navbar = ({ isAdmin, isLogedIn, setIsAdmin, setIsLoggedIn }) => {
       )}
     </>
   );
+};
+
+Navbar.propTypes = {
+  isAdmin: PropTypes.bool,
+  isLogedIn: PropTypes.bool,
+  setIsAdmin: PropTypes.func,
+  setIsLoggedIn: PropTypes.func,
 };
 
 export default Navbar;

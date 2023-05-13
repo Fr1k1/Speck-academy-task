@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { Header as HeaderWrapper, HeaderInner, LogoImg } from "./HeaderStyle";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
 import Navbar from "../Navbar/Navbar";
 
@@ -9,11 +10,6 @@ const Header = ({ isAdmin, isLogedIn, setIsAdmin, setIsLoggedIn }) => {
     window.scrollTo(0, 0);
   }, []);
 
-  //console.log("Header veli da je isAdmin" + isAdmin);
-  //console.log("Header veli da je isLogedIn" + isLogedIn);
-
-  console.log("Header veli da je setIsAdmin" + setIsAdmin);
-  //console.log("Header veli da je isLogedIn" + isLogedIn); dobro ga dobiva
   return (
     <HeaderWrapper>
       <HeaderInner>
@@ -25,6 +21,13 @@ const Header = ({ isAdmin, isLogedIn, setIsAdmin, setIsLoggedIn }) => {
       </HeaderInner>
     </HeaderWrapper>
   );
+};
+
+Header.propTypes = {
+  isAdmin: PropTypes.bool,
+  isLogedIn: PropTypes.bool,
+  setIsAdmin: PropTypes.func,
+  setIsLoggedIn: PropTypes.func,
 };
 
 export default Header;
