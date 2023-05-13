@@ -12,7 +12,7 @@ import { useState } from "react"
 function App() {
 
   const [isAdmin, setIsAdmin] = useState(false);
-  const [isLogedIn, setIsLogedIn] = useState(false);
+  const [isLogedIn, setIsLoggedIn] = useState(false);
 
 
   return (
@@ -53,7 +53,7 @@ function App() {
 
           <Route path={"/courses/:title"} element={<Course_page />} />
 
-          <Route path="/login" element={<SignIn setIsLogedIn={setIsLogedIn} setIsAdmin={setIsAdmin} />} />
+          <Route path="/login" element={<SignIn setIsLoggedIn={setIsLoggedIn} setIsAdmin={setIsAdmin} />} />
 
           <Route path="/register" element={<Register />} />
 

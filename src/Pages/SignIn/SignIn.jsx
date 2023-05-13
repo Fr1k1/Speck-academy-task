@@ -16,6 +16,8 @@ const SignIn = ({ setIsLoggedIn, setIsAdmin }) => {
 
     const [successMessage, setSuccessMessage] = useState(null);
 
+
+
     return (
         <Section title="Sign in">
             <Formik
@@ -52,8 +54,15 @@ const SignIn = ({ setIsLoggedIn, setIsAdmin }) => {
                         }, 2000)
 
                         localStorage.setItem('jwt_token', response.access_token);
+
+                        console.log("Je li admin" + JSON.stringify(user.is_admin));
+                        localStorage.setItem('is_admin', user.is_admin);
+
+
                         setIsAdmin(user.is_admin);
-                        setIsLoggedIn(response.access_token) //true ili false
+                        setIsLoggedIn(response.access_token) //ove dve linije mi naprave da pise da nije succ makar je...
+                        console.log(`Set is logged in"+${setIsLoggedIn}`);
+
 
                         resetForm();
 
@@ -114,7 +123,7 @@ const SignIn = ({ setIsLoggedIn, setIsAdmin }) => {
 
                         <FormRow>
                             <Button isSecondary type="submit" disabled={formik.isSubmitting}>
-                                {formik.isSubmitting ? "Processing..." : "SignIn"}
+                                {formik.isSubmitting ? "Processing..." : "Sign in"}
                             </Button>
                         </FormRow>
                     </Form>
