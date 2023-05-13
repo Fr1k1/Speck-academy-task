@@ -18,8 +18,8 @@ const Navbar = ({ isAdmin, isLogedIn, setIsAdmin, setIsLoggedIn }) => {
   const [mobileNavbar, setMobileNavbar] = useState(false);
 
   const mobile = window.innerWidth <= 1024 ? true : false;
-  console.log("Navbar veli da je isAdmin" + isAdmin);
-  console.log("Is logged in je" + isLogedIn);
+  //console.log("Navbar veli da je isAdmin" + isAdmin);
+  //console.log("Is logged in je" + isLogedIn);
   return (
     <>
       {mobileNavbar === false && mobile === true ? (

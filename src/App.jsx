@@ -7,10 +7,15 @@ import Register from "./Pages/Register/Register";
 import Header from "./Components/Header/Header";
 import ProfilePage from "./Pages/ProfilePage/ProfilePage";
 import { useState } from "react";
+import ProtectedRoute from "./Components/ProtectedRoute/ProtectedRoute";
 
 function App() {
-  const [isAdmin, setIsAdmin] = useState(false);
-  const [isLogedIn, setIsLoggedIn] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(
+    localStorage.getItem("is_admin") === "true"
+  );
+  const [isLogedIn, setIsLoggedIn] = useState(
+    localStorage.getItem("jwt_token") ? true : false
+  );
 
   return (
     <>
@@ -28,7 +33,18 @@ function App() {
 
           <Route path="/courses" element={<CoursesPage />}></Route>
 
-          <Route path="/profile" element={<ProfilePage />}></Route>
+          <Route
+            path="/profile"
+            element={
+              <ProtectedRoute
+                path="/profile"
+                isLoggedIn={isLogedIn}
+                isAdmin={isAdmin}
+              >
+                <ProfilePage />
+              </ProtectedRoute>
+            }
+          ></Route>
 
           <Route path={"/courses/:title"} element={<Course_page />} />
 
