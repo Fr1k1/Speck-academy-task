@@ -17,6 +17,8 @@ function App() {
     localStorage.getItem("jwt_token") ? true : false
   );
 
+  console.log("Is logged in je" + isLogedIn);
+
   return (
     <>
       <Header
@@ -38,7 +40,7 @@ function App() {
             element={
               <ProtectedRoute
                 path="/profile"
-                isLoggedIn={isLogedIn}
+                isLogedIn={isLogedIn}
                 isAdmin={isAdmin}
               >
                 <ProfilePage />
