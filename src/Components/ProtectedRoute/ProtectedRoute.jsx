@@ -12,7 +12,7 @@ const ProtectedRoute = ({ isAdmin, children, isLogedIn }) => {
 ProtectedRoute.propTypes = {
   isAdmin: PropTypes.bool,
   children: PropTypes.node,
-  isLogedIn: PropTypes.bool,
+  isLogedIn: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
 };
 
 export default ProtectedRoute;

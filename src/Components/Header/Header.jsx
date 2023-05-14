@@ -25,7 +25,7 @@ const Header = ({ isAdmin, isLogedIn, setIsAdmin, setIsLoggedIn }) => {
 
 Header.propTypes = {
   isAdmin: PropTypes.bool,
-  isLogedIn: PropTypes.bool,
+  isLogedIn: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
   setIsAdmin: PropTypes.func,
   setIsLoggedIn: PropTypes.func,
 };

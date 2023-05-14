@@ -121,7 +121,7 @@ const SignIn = ({ setIsLoggedIn, setIsAdmin, isLogedIn, isAdmin }) => {
 
 SignIn.propTypes = {
   isAdmin: PropTypes.bool,
-  isLogedIn: PropTypes.bool,
+  isLogedIn: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
   setIsAdmin: PropTypes.func,
   setIsLoggedIn: PropTypes.func,
 };

@@ -35,7 +35,14 @@ const Navbar = ({ isAdmin, isLogedIn, setIsAdmin, setIsLoggedIn }) => {
           </HeaderLink>
 
           <Link to="/login">
-            <Button isOutline mobitel onClick={() => navigate("/login")}>
+            <Button
+              isOutline
+              mobitel
+              onClick={() => {
+                navigate("/login");
+                setMobileNavbar(false);
+              }}
+            >
               Sign in
             </Button>
           </Link>
@@ -44,7 +51,10 @@ const Navbar = ({ isAdmin, isLogedIn, setIsAdmin, setIsLoggedIn }) => {
             <Button
               isOutline={false}
               mobitel
-              onClick={() => navigate("/register")}
+              onClick={() => {
+                navigate("/register");
+                setMobileNavbar(false);
+              }}
             >
               Register
             </Button>
@@ -121,7 +131,7 @@ const Navbar = ({ isAdmin, isLogedIn, setIsAdmin, setIsLoggedIn }) => {
 
 Navbar.propTypes = {
   isAdmin: PropTypes.bool,
-  isLogedIn: PropTypes.bool,
+  isLogedIn: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
   setIsAdmin: PropTypes.func,
   setIsLoggedIn: PropTypes.func,
 };
