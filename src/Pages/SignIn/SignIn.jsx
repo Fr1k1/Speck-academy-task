@@ -10,10 +10,12 @@ import {
   FormSuccessMessage,
 } from "../../utils/styles/generalStyles";
 import { getUsers, loginUser } from "../../api/users";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import PropTypes from "prop-types";
+import { AuthContext } from "../../Context/AuthContext";
 
-const SignIn = ({ setIsLoggedIn, setIsAdmin, isLogedIn, isAdmin }) => {
+const SignIn = () => {
+  const { setIsAdmin, setIsLoggedIn } = useContext(AuthContext);
   const [successMessage, setSuccessMessage] = useState(null);
 
   return (

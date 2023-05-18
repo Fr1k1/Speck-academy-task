@@ -1,8 +1,11 @@
 import { Navigate } from "react-router-dom";
 import PropTypes from "prop-types";
+import { useContext } from "react";
+import { AuthContext } from "../../Context/AuthContext";
 
-const ProtectedRoute = ({ isAdmin, children, isLogedIn }) => {
-  if (!isAdmin || !isLogedIn) {
+const ProtectedRoute = ({ children }) => {
+  const { isAdmin, isLoggedIn } = useContext(AuthContext);
+  if (!isAdmin || !isLoggedIn) {
     return <Navigate to="/" replace />;
   }
 

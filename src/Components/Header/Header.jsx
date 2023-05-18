@@ -1,11 +1,13 @@
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { Header as HeaderWrapper, HeaderInner, LogoImg } from "./HeaderStyle";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
 import Navbar from "../Navbar/Navbar";
+import { AuthContext } from "../../Context/AuthContext";
 
-const Header = ({ isAdmin, isLogedIn, setIsAdmin, setIsLoggedIn }) => {
+const Header = () => {
+  const { isAdmin, isLoggedIn } = useContext(AuthContext);
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -16,7 +18,7 @@ const Header = ({ isAdmin, isLogedIn, setIsAdmin, setIsLoggedIn }) => {
         <Link to="/">
           <LogoImg />
         </Link>
-        <Navbar isAdmin={isAdmin} isLogedIn={isLogedIn} />{" "}
+        <Navbar isAdmin={isAdmin} isLogedIn={isLoggedIn} />{" "}
         {/*iz headera dajem navbaru*/}
       </HeaderInner>
     </HeaderWrapper>

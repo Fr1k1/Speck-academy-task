@@ -6,64 +6,31 @@ import SignIn from "./Pages/SignIn/SignIn";
 import Register from "./Pages/Register/Register";
 import Header from "./Components/Header/Header";
 import ProfilePage from "./Pages/ProfilePage/ProfilePage";
-import { useState } from "react";
 import ProtectedRoute from "./Components/ProtectedRoute/ProtectedRoute";
+import { AuthProvider } from "./Context/AuthContext";
 
 function App() {
-  const [isAdmin, setIsAdmin] = useState(
-    localStorage.getItem("is_admin") === "true"
-  );
-  const [isLogedIn, setIsLoggedIn] = useState(
-    localStorage.getItem("jwt_token") ? true : false
-  );
-
   return (
-    <>
-      <Header
-        isAdmin={isAdmin}
-        isLogedIn={isLogedIn}
-        setIsAdmin={setIsAdmin}
-        setIsLoggedIn={setIsLoggedIn}
-      />
+    <AuthProvider>
+      <Header />
       <main>
         <Routes>
-          <Route path="/" element={<Homepage />}>
-            {" "}
-          </Route>
-
-          <Route path="/courses" element={<CoursesPage />}></Route>
-
+          <Route path="/" element={<Homepage />} />
+          <Route path="/courses" element={<CoursesPage />} />
           <Route
             path="/profile"
             element={
-              <ProtectedRoute
-                path="/profile"
-                isLogedIn={isLogedIn}
-                isAdmin={isAdmin}
-              >
+              <ProtectedRoute path="/profile">
                 <ProfilePage />
               </ProtectedRoute>
             }
-          ></Route>
-
-          <Route path={"/courses/:title"} element={<Course_page />} />
-
-          <Route
-            path="/login"
-            element={
-              <SignIn
-                isLogedIn={isLogedIn}
-                isAdmin={isAdmin}
-                setIsLoggedIn={setIsLoggedIn}
-                setIsAdmin={setIsAdmin}
-              />
-            }
           />
-
+          <Route path="/courses/:title" element={<Course_page />} />
+          <Route path="/login" element={<SignIn />} />
           <Route path="/register" element={<Register />} />
         </Routes>
       </main>
-    </>
+    </AuthProvider>
   );
 }
 
