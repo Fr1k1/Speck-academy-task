@@ -1,12 +1,15 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Hamburger } from "../Header/HeaderStyle";
 import { HeaderNav, HeaderLink } from "../Header/HeaderStyle";
 import { Button } from "../../utils/styles/generalStyles";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
+import { AuthContext } from "../../Context/AuthContext";
 
-const Navbar = ({ isAdmin, isLogedIn, setIsAdmin, setIsLoggedIn }) => {
+const Navbar = () => {
+  const { isAdmin, isLoggedIn, setIsAdmin, setIsLoggedIn } =
+    useContext(AuthContext);
   const logoutUser = () => {
     localStorage.removeItem("jwt_token");
     localStorage.removeItem("is_admin");
@@ -24,7 +27,7 @@ const Navbar = ({ isAdmin, isLogedIn, setIsAdmin, setIsLoggedIn }) => {
     <>
       {mobileNavbar === false && mobile === true ? (
         <Hamburger onClick={() => setMobileNavbar(true)} />
-      ) : !isLogedIn ? (
+      ) : !isLoggedIn ? (
         <HeaderNav>
           <HeaderLink
             onClick={() => setMobileNavbar(false)}
