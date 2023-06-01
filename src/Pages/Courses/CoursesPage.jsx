@@ -6,13 +6,19 @@ import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import coursesMock from "../../utils/mock/courses";
 import { MutatingDots } from "react-loader-spinner";
+import coursesStore from "../../store/CoursesStore.js";
+import { observer } from "mobx-react";
 
 const CoursesPage = () => {
   const [filteredCourses, setFilteredCourses] = useState(coursesMock);
   const [loading, setLoading] = useState(false);
+  const { mobxCourses, coursesLength, setCourses, setCourse } = coursesStore;
 
   const handleSearch = (event) => {
-    const searchValue = (event && event.target && event.target.value) ? event.target.value.toLowerCase() : '';
+    const searchValue =
+      event && event.target && event.target.value
+        ? event.target.value.toLowerCase()
+        : "";
     const filtered = coursesMock.filter((course) =>
       course.title.toLowerCase().includes(searchValue)
     );
@@ -29,7 +35,6 @@ const CoursesPage = () => {
 
   return (
     <div>
-
       <main>
         <Section
           title="Browse our all courses"
@@ -41,7 +46,7 @@ const CoursesPage = () => {
               disabled={loading} // disable the search bar if loading is true
               onValueChange={handleSearch}
             />
-            {loading ? (
+            {coursesLength < 0 ? (
               <div style={{ display: "flex", justifyContent: "center" }}>
                 <MutatingDots
                   height={100}
@@ -64,7 +69,7 @@ const CoursesPage = () => {
   );
 };
 
-export default CoursesPage;
+export default observer(CoursesPage);
 
 CoursesPage.propTypes = {
   filteredCourses: PropTypes.arrayOf(

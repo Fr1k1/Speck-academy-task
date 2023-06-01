@@ -4,29 +4,32 @@ import coursesMock from "../../utils/mock/courses";
 import { Grid } from "../../utils/styles/generalStyles";
 import Course from "../../Components/Course/Course";
 import { MutatingDots } from "react-loader-spinner";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
+import { observer } from "mobx-react";
+import coursesStore from "../../store/CoursesStore";
 
 const Homepage = () => {
-  const [courses, setCourses] = useState(null);
+  const { mobxCourses, setCourses, coursesLength } = coursesStore;
 
   useEffect(() => {
-    setTimeout(() => {
-      setCourses(coursesMock);
-    }, 1000);
+    if (coursesLength === 0) {
+      setTimeout(() => {
+        setCourses(coursesMock);
+      }, 1000);
+    }
   }, []);
 
   return (
     <div>
-
       <main>
         <Hero />
         <Section
           title="Open your new possibilities"
           subtitle="We recommend that you choose one of the featured courses. If you don't find anything for you here, search for courses in detail on the courses page."
         >
-          {courses ? (
+          {coursesLength > 0 ? (
             <Grid>
-              {courses.slice(0, 4).map((course) => (
+              {mobxCourses.slice(0, 4).map((course) => (
                 <Course
                   key={course.id}
                   imgSrc={course.imgSrc}
@@ -57,4 +60,4 @@ const Homepage = () => {
   );
 };
 
-export default Homepage;
+export default observer(Homepage);
